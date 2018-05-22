@@ -11,7 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     mappings.forEach((mapping: any) => {
         const handler = vscode.commands.registerCommand(mapping.from, () => {
-            vscode.commands.executeCommand(mapping.to, mappings.args);
+            vscode.commands.executeCommand(mapping.to, mapping.args);
 
             return Promise.resolve();
         });
