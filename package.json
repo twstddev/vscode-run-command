@@ -2,7 +2,7 @@
     "name": "vscode-run-command",
     "displayName": "vscode-run-command",
     "description": "Extensions that allows to run commands without waiting for them to finish",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "none",
     "engines": {
         "vscode": "^1.23.0"
@@ -11,16 +11,21 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "*"
     ],
     "main": "./out/extension",
     "contributes": {
-        "commands": [
-            {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+        "configuration": {
+            "type": "object",
+            "title": "VSCode run commands configuration",
+            "properties": {
+                "vscode.run.commands.mappings": {
+                    "type": "array",
+                    "default": [],
+                    "description": "Specify your mappings"
+                }
             }
-        ]
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
